@@ -15,7 +15,17 @@
         <div id="chat-messages"></div>
         <input type="text" id="user-input" placeholder="TYPE YOUR MESSAGE..." onkeydown="sendMessage(event)">
     </div>
-    
+    <div id="license-info">
+        <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+            <a property="dct:title" rel="cc:attributionURL" href="https://github.com/apilbhandarimss/nepali.github.io/" style="color: white;">Chat Bot </a> by
+            <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.facebook.com/apil.bhandari.969" style="color: white;">Apil Bhandari</a>
+            is licensed under
+            <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="color: white; display:inline-block;">Attribution 4.0 International
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+                <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+            </a>
+        </p>
+    </div>
     <script>
         const responses = {
             "HOW IS THE WEATHER IN NEPAL?": "The weather in Nepal varies depending on the region and the time of year. It generally has a diverse climate, ranging from tropical in the Terai to alpine in the Himalayas.",
@@ -978,7 +988,17 @@ input[type="text"]:hover {
     outline: none;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
-
+#license-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    color: white;
+}
 
     </style>
 </body>
