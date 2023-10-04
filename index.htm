@@ -27,6 +27,17 @@
         </p>
     </div>
     <script>
+function addMessage(message, isUser = false) {
+  const chatMessages = document.getElementById('chat-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = isUser ? 'user-message' : 'bot-message';
+  messageDiv.textContent = message;
+  chatMessages.appendChild(messageDiv);
+}
+
+
+
+
         const responses = {
             "HOW IS THE WEATHER IN NEPAL?": "The weather in Nepal varies depending on the region and the time of year. It generally has a diverse climate, ranging from tropical in the Terai to alpine in the Himalayas.",
             "WHAT IS THE OFFICIAL LANGUAGE OF NEPAL?": "The official language of Nepal is Nepali.",
@@ -553,7 +564,7 @@
 "NEPAL'S NATIONAL DEMOCRATIC PARTY?" : "NEPALI CONGRESS",
 "WHAT IS THE PERIOD OF THE RANA REGIME CALLED?" : "RANA RULE",
 "WHO IS THE CURRENT PRIME MINISTER OF NEPAL?" : "KP SHARMA OLI",
-"WHO WAS NEPAL'S KING DURING THE UNIFICATION PERIOD?" : "PRITHVI NARAYAN SHAH",
+"WHO WAS  NEPAL KING DURING THE UNIFICATION PERIOD?" : "PRITHVI NARAYAN SHAH",
 "WHAT IS THE NEPAL ARMY KNOWN AS?" : "NEPAL ARMY",
 "NEPAL'S NATIONAL ELECTION SYMBOL OF NEPALI CONGRESS?" : "TREE",
 "WHO WAS THE KING OF NEPAL DURING THE GURKHA WARS?" : "RAJENDRA LAKSHMI",
@@ -810,39 +821,218 @@
 
   
         };
+const ignoreWords = ["what", "IS", "THE", "WHO", "NEPAL'S"]; // Words to ignore for similarity calculation
 
-        function getRandomResponse() {
-            const questionArray = Object.keys(responses);
-            const randomQuestion = questionArray[Math.floor(Math.random() * questionArray.length)];
-            return responses[randomQuestion];
-        }
+const spellingMistakes = {
+  'helo': 'HI',
+  'wassup': "what's up",
+   'abscence': 'absence',
+  'acces': 'access',
+  'accomodate': 'accommodate',
+  'acheive': 'achieve',
+  'agressive': 'aggressive',
+  'allot': 'a lot',
+  'alot': 'a lot',
+  'appearence': 'appearance',
+  'arguement': 'argument',
+  'beleive': 'believe',
+  'bizzare': 'bizarre',
+  'brocolli': 'broccoli',
+  'buisness': 'business',
+  'calender': 'calendar',
+  'camoflage': 'camouflage',
+  'catagory': 'category',
+  'comming': 'coming',
+  'commitee': 'committee',
+  'concious': 'conscious',
+  'definately': 'definitely',
+  'dilema': 'dilemma',
+  'dissapear': 'disappear',
+  'embarass': 'embarrass',
+  'enviroment': 'environment',
+  'exagerate': 'exaggerate',
+  'existance': 'existence',
+  'exprerienced': 'experienced',
+  'familar': 'familiar',
+  'finaly': 'finally',
+  'florescent': 'fluorescent',
+  'foriegn': 'foreign',
+  'freind': 'friend',
+  'futher': 'further',
+  'goverment': 'government',
+  'grammer': 'grammar',
+  'happend': 'happened',
+  'harrass': 'harass',
+  'heirarchy': 'hierarchy',
+  'humerous': 'humorous',
+  'idiosyncracy': 'idiosyncrasy',
+  'independant': 'independent',
+  'independance': 'independence',
+  'innoculate': 'inoculate',
+  'interupt': 'interrupt',
+  'irresistable': 'irresistible',
+  'judgement': 'judgment',
+  'knowlege': 'knowledge',
+  'lazer': 'laser',
+  'liasion': 'liaison',
+  'libary': 'library',
+  'maintainance': 'maintenance',
+  'maneouver': 'maneuver',
+  'millenium': 'millennium',
+  'miniture': 'miniature',
+  'mischievious': 'mischievous',
+  'neccessary': 'necessary',
+  'ocasion': 'occasion',
+  'occured': 'occurred',
+  'occuring': 'occurring',
+  'occasionally': 'occasionally',
+  'occurrence': 'occurrence',
+  'opthalmologist': 'ophthalmologist',
+  'paralell': 'parallel',
+  'peice': 'piece',
+  'perserverance': 'perseverance',
+  'personel': 'personnel',
+  'plagerize': 'plagiarize',
+  'pavillion': 'pavilion',
+  'preceed': 'precede',
+  'prenounciation': 'pronunciation',
+  'priviledge': 'privilege',
+  'publically': 'publicly',
+  'reccomend': 'recommend',
+  'recieve': 'receive',
+  'restraunt': 'restaurant',
+  'rythm': 'rhythm',
+  'sence': 'sense',
+  'seperated': 'separated',
+  'succesful': 'successful',
+  'suprise': 'surprise',
+  'their': 'they’re',
+  'there': 'their',
+  'theyre': 'their',
+  'truely': 'truly',
+  'untill': 'until',
+  'vaccume': 'vacuum',
+  'wether': 'weather',
+  'wierd': 'weird',
+  'wich': 'which',
+  'your': 'you’re',
+  'youre': 'you’re',
+  'occassionally': 'occasionally',
+  'occuring': 'occurring',
+  'succede': 'succeed',
+  'athiest': 'atheist',
+  'definatly': 'definitely',
+  'dessicate': 'desiccate',
+  'dispell': 'dispel',
+  'excede': 'exceed',
+  'facist': 'fascist',
+  'missle': 'missile',
+  'neccesary': 'necessary',
+  'occassion': 'occasion',
+  'occured': 'occurred',
+  'occuring': 'occurring',
+  'privelege': 'privilege',
+  'reccommend': 'recommend',
+  'sence': 'sense',
+  'seperated': 'separated',
+  'definately': 'definitely',
+  'enviroment': 'environment',
+  'existance': 'existence',
+  'exprerienced': 'experienced',
+  'familar': 'familiar',
+  'happend': 'happened',
+  'harrass': 'harass',
+  'maintainance': 'maintenance',
+  'occured': 'occurred',
+  'occuring': 'occurring',
+  'occurrence': 'occurrence',
+  'paralell': 'parallel',
+  'peice': 'piece',
+  'perserverance': 'perseverance',
+  'personel': 'personnel',
+  'plagerize': 'plagiarize',
+  'reccomend': 'recommend',
+  'recieve': 'receive',
+  'restraunt': 'restaurant',
+  'rythm': 'rhythm',
+  'sence': 'sense',
+  'seperated': 'separated',
+  'succesful': 'successful',
+  'suprise': 'surprise',
+  // Add more spelling mistakes and corrections here
+};
 
-        function addMessage(message, isUser = false) {
-            const chatMessages = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = isUser ? 'user-message' : 'bot-message';
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-        }
+function normalizeInput(input) {
+  // Normalize the user input by removing punctuation and converting to lowercase
+  return input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').toLowerCase();
+}
 
-        function sendMessage(event) {
-            if (event.key === 'Enter') {
-                const userInput = document.getElementById('user-input');
-                const userMessage = userInput.value.toUpperCase(); // Convert user input to uppercase
-                userInput.value = '';
+function correctSpelling(query) {
+  const words = query.split(' ');
 
-                addMessage(userMessage, true);
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i].toLowerCase();
+    if (spellingMistakes[word]) {
+      words[i] = spellingMistakes[word];
+    }
+  }
 
-                if (responses[userMessage]) {
-                    const botResponse = responses[userMessage];
-                    setTimeout(() => {
-                        addMessage(botResponse);
-                    }, 500);
-                } else {
-                    addMessage("I'M NOT SURE HOW TO ANSWER THAT QUESTION.");
-                }
-            }
-        }
+  return words.join(' ');
+}
+
+function calculateSimilarity(str1, str2) {
+  const words1 = str1.split(' ').filter(word => !ignoreWords.includes(word));
+  const words2 = str2.split(' ').filter(word => !ignoreWords.includes(word));
+
+  const minLength = Math.min(words1.length, words2.length);
+  let commonWords = 0;
+
+  for (let i = 0; i < minLength; i++) {
+    if (words1[i] === words2[i]) {
+      commonWords++;
+    }
+  }
+
+  return (commonWords / minLength) * 100; // Calculate similarity as a percentage
+}
+
+function search(query) {
+  let bestMatch = null;
+  let maxSimilarity = 0;
+
+  const correctedUserMessage = correctSpelling(query); // Correct spelling before processing
+  const userMessage = normalizeInput(correctedUserMessage.trim().toUpperCase()); // Normalize and convert user input to uppercase
+
+  for (const predefinedQuery in responses) {
+    const similarity = calculateSimilarity(userMessage, normalizeInput(predefinedQuery.toUpperCase()));
+    if (similarity >= 60 && similarity > maxSimilarity) {
+      maxSimilarity = similarity;
+      bestMatch = responses[predefinedQuery];
+    }
+  }
+
+  return bestMatch || "I'm not sure how to answer that question.";
+}
+
+function sendMessage(event) {
+  if (event.key === 'Enter') {
+    const userInput = document.getElementById('user-input');
+    const userMessage = userInput.value.trim(); // Trim user input
+    userInput.value = '';
+
+    const botResponse = search(userMessage);
+
+    addMessage(userMessage.toUpperCase(), true); // Display user input in uppercase
+    setTimeout(() => {
+      addMessage(botResponse);
+    }, 500);
+  }
+}
+//document.getElementById('user-input').addEventListener('keydown', sendMessage);
+
+// Event listener for user input
+
+
     </script>
 
     <style>
