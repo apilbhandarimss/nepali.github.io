@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Abuse Reporting Information</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="child-abuse-reporting-info"></div>
+
+  <script>
+    const wards = [
+      {
+        wardNo: 1,
+        phoneNumber: '+977-1-44101661',
+        localAuthorityTel: '+977-61-520520',
+        wardHeadNumber: '+977-98-56003001'
+      },
+      // Add information for the remaining 32 wards
+    ];
+
+    const childAbuseReportingInfoContainer = document.getElementById('child-abuse-reporting-info');
+
+    for (let wardNo = 1; wardNo <= 33; wardNo++) {
+      const wardInfoHTML = `
+        <div>
+        
+
+          <p>"CHILDABUSE POKHARA 0${wardNo}": "contact here to complain +977-1-44101661, better complain local authority tel of ward no ${wardNo} if you are there else use syntax CHILD ABUSE POKHARA wardno:  ward head +977-98-560030${wardNo}",</p>
+          <p>"CHILD ABUSE POKHARA 0${wardNo}": "contact here to complain +977-1-44101661, better complain local authority tel of ward no ${wardNo} if you are there else use syntax CHILD ABUSE POKHARA wardno:  ward head +977-98-560030${wardNo}",</p>
+          <p>"CHILDABUSE POKHARA  ${wardNo}": "contact here to complain +977-1-44101661, better complain local authority tel of ward no ${wardNo} if you are there else use syntax CHILD ABUSE POKHARA wardno:  ward head +977-98-560030${wardNo}",</p>
+          <p>"CHILD ABUSE POKHARA  ${wardNo}": "contact here to complain +977-1-44101661, better complain local authority tel of ward no ${wardNo} if you are there else use syntax CHILD ABUSE POKHARA wardno: ward head +977-98-560030${wardNo}",</p>
+
+          <br/>
+        </div>
+      `;
+
+      childAbuseReportingInfoContainer.innerHTML += wardInfoHTML;
+    }
+  </script>
+</body>
+</html>
