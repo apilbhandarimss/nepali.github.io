@@ -8,7 +8,7 @@
 <body>
 
   <div id="header">
-    <h6>Syntax or how to ask? FOR scam :SCAM, FOR any child labour or abuse, CHILD ABUSE CITY, simply PROBLEM PLACE (note the chat bot might or might not provide information)</h6>
+    <h6> <h4>You can talk naturally but for accurate information</h4>Syntax or how to ask? FOR scam :SCAM, FOR any child labour or abuse, CHILD ABUSE CITY, simply PROBLEM PLACE (note the chat bot might or might not provide information)</h6>
         </div>
     <div id="chat-container">
     
@@ -23,10 +23,11 @@
             <a property="dct:title" rel="cc:attributionURL" href="https://github.com/apilbhandarimss/nepali.github.io/" style="color: white;">Chat Bot </a> by
             <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.facebook.com/apil.bhandari.969" style="color: white;">Apil Bhandari</a>
             is licensed under
-            <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="color: white; display:inline-block;">Attribution 4.0 International
+            <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="color: white; display:inline-block;">Attribution 4.0 International 
                 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
                 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
             </a>
+            This may produce wrong information
         </p>
     </div>
     <script>
@@ -38,10 +39,7 @@ function addMessage(message, isUser = false) {
   chatMessages.appendChild(messageDiv);
 }
 
-
-
-
-        const responses = {
+const responses = {
           "CHILDABUSE POKHARA 01": "contact here to complain +977-1-44101661, better complain local authority tel of ward no 1''if you are there else use syntax CHILD ABUSE POKHARA for kathmandu just CHILD ABUSE KATHMANDU  for dharan CHILD ABUSE DHARAN'' wardno: ward head +977-98-5600301",
 
 "CHILD ABUSE POKHARA 01": "contact here to complain +977-1-44101661, better complain local authority tel of ward no 1 if you are there else use syntax CHILD ABUSE POKHARA wardno: ward head +977-98-5600301",
@@ -711,160 +709,28 @@ function addMessage(message, isUser = false) {
 "corruption":"contact 107 which is the contact of CIIA ",
 "ambulance":"102",
   
-        };
-const ignoreWords = ["what", "IS", "THE", "WHO", "NEPAL'S"]; // Words to ignore for similarity calculation
-
-const spellingMistakes = {
-  'pkr': 'POKHARA',
-  'trafiking': 'trafficking',
-  'oe': 'HI',
-  'kumari': 'KUMARI',
-  'marvel': 'HI',
-  'oee': 'HI',
-  'sunana': 'HI',
-  'sanchixau?': 'KACHA',
-    'sanchixau': 'KACHA',
-
-  'wassup': "what's up",
-   'abscence': 'absence',
-  'acces': 'access',
-  'accomodate': 'accommodate',
-  'acheive': 'achieve',
-  'agressive': 'aggressive',
-  'allot': 'a lot',
-  'alot': 'a lot',
-  'appearence': 'appearance',
-  'arguement': 'argument',
-  'beleive': 'believe',
-  'bizzare': 'bizarre',
-  'brocolli': 'broccoli',
-  'buisness': 'business',
-  'calender': 'calendar',
-  'camoflage': 'camouflage',
-  'catagory': 'category',
-  'comming': 'coming',
-  'commitee': 'committee',
-  'concious': 'conscious',
-  'definately': 'definitely',
-  'dilema': 'dilemma',
-  'dissapear': 'disappear',
-  'embarass': 'embarrass',
-  'enviroment': 'environment',
-  'exagerate': 'exaggerate',
-  'existance': 'existence',
-  'exprerienced': 'experienced',
-  'familar': 'familiar',
-  'finaly': 'finally',
-  'florescent': 'fluorescent',
-  'foriegn': 'foreign',
-  'freind': 'friend',
-  'futher': 'further',
-  'goverment': 'government',
-  'grammer': 'grammar',
-  'happend': 'happened',
-  'harrass': 'harass',
-  'heirarchy': 'hierarchy',
-  'humerous': 'humorous',
-  'idiosyncracy': 'idiosyncrasy',
-  'independant': 'independent',
-  'independance': 'independence',
-  'innoculate': 'inoculate',
-  'interupt': 'interrupt',
-  'irresistable': 'irresistible',
-  'judgement': 'judgment',
-  'knowlege': 'knowledge',
-  'lazer': 'laser',
-  'liasion': 'liaison',
-  'libary': 'library',
-  'maintainance': 'maintenance',
-  'maneouver': 'maneuver',
-  'millenium': 'millennium',
-  'miniture': 'miniature',
-  'mischievious': 'mischievous',
-  'neccessary': 'necessary',
-  'ocasion': 'occasion',
-  'occured': 'occurred',
-  'occuring': 'occurring',
-  'occasionally': 'occasionally',
-  'occurrence': 'occurrence',
-  'opthalmologist': 'ophthalmologist',
-  'paralell': 'parallel',
-  'peice': 'piece',
-  'perserverance': 'perseverance',
-  'personel': 'personnel',
-  'plagerize': 'plagiarize',
-  'pavillion': 'pavilion',
-  'preceed': 'precede',
-  'prenounciation': 'pronunciation',
-  'priviledge': 'privilege',
-  'publically': 'publicly',
-  'reccomend': 'recommend',
-  'recieve': 'receive',
-  'restraunt': 'restaurant',
-  'rythm': 'rhythm',
-  'sence': 'sense',
-  'seperated': 'separated',
-  'succesful': 'successful',
-  'suprise': 'surprise',
-  'their': 'they?re',
-  'there': 'their',
-  'theyre': 'their',
-  'truely': 'truly',
-  'untill': 'until',
-  'vaccume': 'vacuum',
-  'wether': 'weather',
-  'wierd': 'weird',
-  'wich': 'which',
-  'your': 'you?re',
-  'youre': 'you?re',
-  'occassionally': 'occasionally',
-  'occuring': 'occurring',
-  'succede': 'succeed',
-  'athiest': 'atheist',
-  'definatly': 'definitely',
-  'dessicate': 'desiccate',
-  'dispell': 'dispel',
-  'excede': 'exceed',
-  'facist': 'fascist',
-  'missle': 'missile',
-  'neccesary': 'necessary',
-  'occassion': 'occasion',
-  'occured': 'occurred',
-  'occuring': 'occurring',
-  'privelege': 'privilege',
-  'reccommend': 'recommend',
-  'sence': 'sense',
-  'seperated': 'separated',
-  'definately': 'definitely',
-  'enviroment': 'environment',
-  'existance': 'existence',
-  'exprerienced': 'experienced',
-  'familar': 'familiar',
-  'happend': 'happened',
-  'harrass': 'harass',
-  'maintainance': 'maintenance',
-  'occured': 'occurred',
-  'occuring': 'occurring',
-  'occurrence': 'occurrence',
-  'paralell': 'parallel',
-  'peice': 'piece',
-  'perserverance': 'perseverance',
-  'personel': 'personnel',
-  'plagerize': 'plagiarize',
-  'reccomend': 'recommend',
-  'recieve': 'receive',
-  'restraunt': 'restaurant',
-  'rythm': 'rhythm',
-  'sence': 'sense',
-  'seperated': 'separated',
-  'succesful': 'successful',
-  'suprise': 'surprise',
-  // Add more spelling mistakes and corrections here
+       
 };
+const ignoreWords = ["what", "IS", "THE", "WHO", "NEPAL'S","streets","metropolitan",'mom','i','I','saw','his'];
+const spellingMistakes = {
+  'kid': 'child',
+  'scammed': 'scam',
+  'scamed': 'scam',
+  'father': 'elder',
+  'beating':'abuse',
+  'beat':"abuse",
+  //'wrorking': 'labour',
+  'mother': 'elder',
+  'abusing':"abuse",
 
+
+
+
+
+
+};
 function normalizeInput(input) {
-  // Normalize the user input by removing punctuation and converting to lowercase
-  return input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,' ').toLowerCase();
+  return input.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ').toLowerCase();
 }
 
 function correctSpelling(query) {
@@ -884,53 +750,86 @@ function calculateSimilarity(str1, str2) {
   const words1 = str1.split(' ').filter(word => !ignoreWords.includes(word));
   const words2 = str2.split(' ').filter(word => !ignoreWords.includes(word));
 
-  const minLength = Math.min(words1.length, words2.length);
-  let commonWords = 0;
+  const commonWords = words1.filter(word => words2.includes(word)).length;
+  const similarityWords = (commonWords / Math.max(words1.length, words2.length)) * 100;
 
-  for (let i = 0; i < minLength; i++) {
-    if (words1[i] === words2[i]) {
-      commonWords++;
+  const sequenceSimilarity = calculateSequenceSimilarity(str1, str2);
+  const lengthDifference = calculateLengthDifference(str1, str2);
+  const firstLetterMatch = calculateFirstLetterMatch(str1, str2);
+  const lastLetterMatch = calculateLastLetterMatch(str1, str2);
+
+  const totalSimilarity = (
+    (similarityWords * 0.50) +          
+    (sequenceSimilarity * 0.39) +     
+    (lengthDifference * 0.01) +        
+    (firstLetterMatch * 0.05) +       
+    (lastLetterMatch * 0.05)          
+  );
+
+  return totalSimilarity;
+}
+
+function calculateSequenceSimilarity(str1, str2) {
+  const maxLength = Math.max(str1.length, str2.length);
+  let sequenceSimilarity = 0;
+
+  for (let i = 0; i < maxLength; i++) {
+    if (str1[i] === str2[i]) {
+      sequenceSimilarity += 1 / maxLength; // Increment based on matching letters in sequence
     }
   }
 
-  return (commonWords / minLength) * 100; // Calculate similarity as a percentage
+  return sequenceSimilarity * 100; // Convert to percentage
+}
+
+function calculateLengthDifference(str1, str2) {
+  const lengthDiff = Math.abs(str1.length - str2.length);
+  return 100 - (lengthDiff * 10); // Higher similarity for smaller differences in length
+}
+
+function calculateFirstLetterMatch(str1, str2) {
+  return (str1.charAt(0) === str2.charAt(0)) ? 100 : 0; // Full match of first letter gives 100 similarity
+}
+
+function calculateLastLetterMatch(str1, str2) {
+  return (str1.charAt(str1.length - 1) === str2.charAt(str2.length - 1)) ? 100 : 0; // Full match of last letter gives 100 similarity
 }
 
 function search(query) {
   let bestMatch = null;
   let maxSimilarity = 0;
 
-  const correctedUserMessage = correctSpelling(query); // Correct spelling before processing
-  const userMessage = normalizeInput(correctedUserMessage.trim().toUpperCase()); // Normalize and convert user input to uppercase
+  const correctedUserMessage = correctSpelling(query);
+  const userMessage = normalizeInput(correctedUserMessage.trim().toUpperCase());
 
   for (const predefinedQuery in responses) {
     const similarity = calculateSimilarity(userMessage, normalizeInput(predefinedQuery.toUpperCase()));
-    if (similarity >= 50 && similarity > maxSimilarity) {
+
+    if (similarity > maxSimilarity) {
       maxSimilarity = similarity;
-      bestMatch = responses[predefinedQuery];
+      bestMatch = { response: responses[predefinedQuery], similarity: similarity };
     }
   }
 
-  return bestMatch || "Syntax or how to ask? FOR scam :SCAM, FOR any child labour or abuse, CHILD ABUSE CITY, simply PROBLEM PLACE (note the chat bot might or might not provide information, some helplines 100-police, 101-firebirgade, 102 ambulance, 107 repport corruption,1145-women helpline,  1098 child helpline )";
+  return bestMatch || { response: "Syntax or how to ask? FOR scam :SCAM, FOR any child labour or abuse, CHILD ABUSE CITY, simply PROBLEM PLACE (note the chat bot might or might not provide information, some helplines 100-police, 101-firebirgade, 102 ambulance, 107 repport corruption,1145-women helpline,  1098 child helpline )", similarity: 0 };
 }
 
 function sendMessage(event) {
   if (event.key === 'Enter') {
     const userInput = document.getElementById('user-input');
-    const userMessage = userInput.value.trim(); // Trim user input
+    const userMessage = userInput.value.trim();
     userInput.value = '';
 
-    const botResponse = search(userMessage);
+    const { response, similarity } = search(userMessage);
 
-    addMessage(userMessage.toUpperCase(), true); // Display user input in uppercase
+    addMessage(userMessage.toUpperCase(), true);
     setTimeout(() => {
-      addMessage(botResponse);
+      addMessage(response);
+      console.log(`Similarity: ${similarity}`);
     }, 500);
   }
 }
-//document.getElementById('user-input').addEventListener('keydown', sendMessage);
 
-// Event listener for user input
 
     </script>
 
