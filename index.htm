@@ -700,7 +700,7 @@ const responses = {
                      "HEAlTH Emergency": "Call for emergency assistance: Dial 100 to contact the police, 101 for fire, 102 for ambulance, 103 for traffic control, and 1144 for tourist police. Give accurate information about your location, the number of victims, and their condition.",
                      "Accident": "Call for emergency assistance: Dial 100 to contact the police, 101 for fire, 102 for ambulance, 103 for traffic control, and 1144 for tourist police. Give accurate information about your location, the number of victims, and their condition.",
                      "emergency": "Call for emergency assistance: Dial 100 to contact the police, 101 for fire, 102 for ambulance, 103 for traffic control, and 1144 for tourist police. Give accurate information about your location, the number of victims, and their condition.",
-                     "CHILD LABOUR Kathmandu": "contact here to complain +977-1-44101661, better complain local authority 1180 or 16600105511 or gunaso@kathmandu.gov.np	",
+                     "CHILD LABOUR Kathmandu 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34": "contact here to complain +977-1-44101661, better complain local authority 1180 or 16600105511 or gunaso@kathmandu.gov.np	",
                      "CHILD abuse Kathmandu": "contact here to complain +977-1-44101661, better complain local authority 1180 or 16600105511 or gunaso@kathmandu.gov.np	",
                      "CHILDLABOUR Kathmandu": "contact here to complain +977-1-44101661, better complain local authority 1180 or 16600105511 or gunaso@kathmandu.gov.np	",
                      "CHILDabuse Kathmandu": "contact here to complain +977-1-44101661, better complain local authority 1180 or 16600105511 or gunaso@kathmandu.gov.np	",
@@ -790,11 +790,11 @@ function calculateSimilarity(str1, str2) {
   const lastLetterMatch = calculateLastLetterMatch(str1, str2);
 
   const totalSimilarity = (
-    (similarityWords * 0.50) +          
+    (similarityWords * 0.45) +          
     (sequenceSimilarity * 0.39) +     
     (lengthDifference * 0.01) +        
     (firstLetterMatch * 0.05) +       
-    (lastLetterMatch * 0.05)          
+    (lastLetterMatch * 0.10)          
   );
 
   return totalSimilarity;
@@ -815,7 +815,7 @@ function calculateSequenceSimilarity(str1, str2) {
 
 function calculateLengthDifference(str1, str2) {
   const lengthDiff = Math.abs(str1.length - str2.length);
-  return 100 - (lengthDiff * 10); // Higher similarity for smaller differences in length
+  return 100 - (lengthDiff * 3); // Higher similarity for smaller differences in length
 }
 
 function calculateFirstLetterMatch(str1, str2) {
