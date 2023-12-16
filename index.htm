@@ -8,7 +8,14 @@
 <body>
 
   <div id="header">
-    <h6> <h4>___You can talk naturally but for accurate information type syntax___</h4>
+    <h6> <h4> <nav>
+      <ul>
+        <li><a href="index.htm" target="_self">Chatbot</a></li>
+
+          <li><a href="about.html">About</a></li>
+          <li><a href="download.htm">Download</a></li>
+      </ul>
+  </nav></h4>
         </div>
     <div id="chat-container">
     
@@ -902,6 +909,30 @@ body {
     background-color: rgba(0, 0, 0, 0.6); /* Darken the background on hover */
     transform: scale(1.02); /* Slight scaling effect on hover */
 }
+nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
 
 #header {
     text-align: top;
@@ -917,6 +948,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     z-index: 3; /* Ensure it's above chat messages */
+    width: 80%;
 }
 
 #header:hover {
