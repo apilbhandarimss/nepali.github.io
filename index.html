@@ -834,22 +834,21 @@ function calculateLastLetterMatch(str1, str2) {
 }
 
 function search(query) {
-  let bestMatch = null;
-  let maxSimilarity = 0;
+  let similarQueries = [];
 
   const correctedUserMessage = correctSpelling(query);
   const userMessage = normalizeInput(correctedUserMessage.trim().toUpperCase());
 
   for (const predefinedQuery in responses) {
     const similarity = calculateSimilarity(userMessage, normalizeInput(predefinedQuery.toUpperCase()));
-
-    if (similarity > maxSimilarity) {
-      maxSimilarity = similarity;
-      bestMatch = { response: responses[predefinedQuery], similarity: similarity };
-    }
+    similarQueries.push({ query: predefinedQuery, similarity: similarity });
   }
 
-  return bestMatch || { response: "Syntax or how to ask? FOR scam :SCAM, FOR any child labour or abuse, CHILD ABUSE CITY, simply PROBLEM PLACE (note the chat bot might or might not provide information, some helplines 100-police, 101-firebirgade, 102 ambulance, 107 repport corruption,1145-women helpline,  1098 child helpline )", similarity: 0 };
+  similarQueries.sort((a, b) => b.similarity - a.similarity); // Sort by similarity, descending
+
+  const topSimilarQueries = similarQueries.slice(0, 2); // Retrieve top 3 similar queries
+
+  return topSimilarQueries;
 }
 
 function sendMessage(event) {
@@ -858,15 +857,22 @@ function sendMessage(event) {
     const userMessage = userInput.value.trim();
     userInput.value = '';
 
-    const { response, similarity } = search(userMessage);
+    const topSimilarQueries = search(userMessage);
 
-    addMessage(userMessage.toUpperCase(), true);
+    addMessage(`User query: ${userMessage.toUpperCase()}`, true);
+    addMessage(`Thease are top 2 results`);
+
+
     setTimeout(() => {
-      addMessage(response);
-      console.log(`Similarity: ${similarity}`);
+      topSimilarQueries.forEach((similarQuery) => {
+        addMessage(`Query: ${similarQuery.query} - Response: ${responses[similarQuery.query]}`);
+        
+
+      });
     }, 500);
   }
-}
+} 
+  
 
 
     </script>
@@ -948,7 +954,7 @@ nav ul {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     z-index: 3; /* Ensure it's above chat messages */
-    width: 100%;
+    width: 96.5%;
 }
 
 #header:hover {
