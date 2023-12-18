@@ -8,14 +8,16 @@
 <body>
 
   <div id="header">
-    <h6> <h4> <nav>
+     <h6> <nav>
       <ul>
         <li><a href="index.html" target="_self">Chatbot</a></li>
 
           <li><a href="about.html">About</a></li>
           <li><a href="download.htm">Download</a></li>
+          <li><a href="index.html">Refresh</a></li>
+
       </ul>
-  </nav></h4>
+  </nav></h6>
         </div>
     <div id="chat-container">
     
@@ -871,7 +873,17 @@ function sendMessage(event) {
       });
     }, 500);
   }
-} 
+
+} function addMessage(message, isUser = false) {
+  const chatMessages = document.getElementById('chat-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = isUser ? 'user-message' : 'bot-message';
+  messageDiv.textContent = message;
+  chatMessages.appendChild(messageDiv);
+
+  // Scroll to the bottom of the chat container
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
   
 
 
@@ -901,7 +913,7 @@ body {
 }
 
 #chat-container {
-    max-width: 250;
+    max-width: 50;
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
@@ -909,6 +921,8 @@ body {
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
     position: relative;
     z-index: 2;
+    max-height: 50px
+       
 }
 
 #chat-container:hover {
@@ -921,7 +935,7 @@ nav ul {
       padding: 0;
       overflow: hidden;
       text-align: center;
-      font-size: 18px;
+      font-size: 15.7px;
     }
 
     nav ul li {
@@ -940,31 +954,29 @@ nav ul {
       color: #ffcc00;
     }
 
-#header {
+
+    #header {
     text-align: top;
-    font-size: 12px;
+    font-size: 4px;
     color: #fff;
     position: absolute;
-    top: 10px;
+    top: 5px; /* Adjust to give space from the top */
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8); /* Slightly more opaque black background */
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 3; /* Ensure it's above chat messages */
+    z-index: 3;
     width: 96.5%;
+    height: auto;
 }
 
-#header:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* Darken the background on hover */
-    transform: translateX(-50%) scale(1.05); /* Slight scaling effect on hover */
-}
 
 #chat-messages {
-    max-height: auto;
-    max-width: auto;
+    max-height: 200px;
+    max-width: 500px;
     overflow-y: scroll;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
@@ -974,6 +986,7 @@ nav ul {
     background-size: cover;
     background-repeat: no-repeat;
     transition: background-color 0.3s ease-in-out;
+    scroll-behavior: auto;
 }
 
 #chat-messages:hover {
