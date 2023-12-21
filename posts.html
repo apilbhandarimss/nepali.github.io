@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requested Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .post {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .post-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .request-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .request-btn:hover {
+            background-color: #0056b3;
+        }
+        #header{
+        text-align: top;
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly more opaque black background */
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 3; /* Ensure it's above chat messages */
+    width: 96.5%;}
+
+        .redirection-btn {
+            position: absolute;
+            top: 40px;
+            right: 15px;
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .redirection-btn:hover {
+            background-color: #ff0000;
+        }
+        nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+      font-size: 8px;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+    /* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for the post container */
+.post {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Styling for the post header containing the title */
+.post-header {
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.post-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styling for the post content */
+.post-content {
+  padding: 20px;
+  color: #333;
+}
+
+/* Hover effect for the post */
+.post:hover {
+  transform: scale(1.02);
+}
+
+/* Reset default margin and padding */
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+          <ul>
+            <li><a href="index.html" >Chatbot</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="download.htm">Download</a></li>
+            <li><a href="posts.html">Refresh</a></li>
+            <li><a href="posts.html">posts</a></li>
+
+
+      
+          </ul>
+        </nav></div>
+        <br>
+      
+ 
+
+    <button class="redirection-btn" onclick="redirectToAnotherPage()">Request Post</button>
+
+    <div class="container">
+        <h1 style="text-align: center;">Requested Posts</h1>
+        
+        <div class="post">
+          <div class="post-header">
+            <div class="post-title"><font color="white">Welcome</font></div>
+          </div>
+          <div class="post-content">
+            <p>Hello and welcome to our community! 🌟</p>
+            <p>This project was initiated with a mission to protect rights, tackle everyday problems, offer emergency assistance, and facilitate seamless communication among users and us.</p>
+            <p>We're here to:</p>
+            <ul>
+              <li>Ensure your safety and well-being</li>
+              <li>Provide solutions to your daily challenges</li>
+              <li>Offer swift emergency help when needed</li>
+              <li>Establish an open channel for effective communication between you and our team</li>
+            </ul>
+            <p>We encourage you to share your thoughts, ask questions, and engage with the community. Together, we can create a supportive and empowered environment.</p>
+            <p>Thank you for joining us!</p>            <!-- Additional content here -->
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <div class="post-title"><font color="white">How to post?</font></div>
+          </div>
+          <div class="post-content">
+            <p>Would you like your post to stand out at the top of our community section?</p>
+            <p>Follow these simple steps to get your post highlighted:</p>
+            <ol>
+              <li>Click on the "Request Post" option.</li>
+              <li>Fill in the necessary details for your post.</li>
+              <li>You're all set! Your post will be featured at the top for a day and will be permanently pinned later on for visibility.</li>
+            </ol>
+            <p>By highlighting your post, you increase its visibility, making it easier for the community to engage and interact with your content.</p>
+            <p>We encourage you to apply and share your valuable thoughts with our community!</p>
+          </div>
+          </div>
+        </div>
+        
+        
+        <!-- More posts here -->
+    </div>
+
+    <script>
+        function redirectToAnotherPage() {
+            // Replace this with your desired redirection URL
+            window.location.href = 'complaint.html';
+        }
+
+        // Rest of the code for handling request buttons goes here (same as before)
+    </script>
+</body>
+
+</html>

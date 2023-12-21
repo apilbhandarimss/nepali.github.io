@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="index.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("NaVTU-zedjcsyP88d");
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Terms and Conditions Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Insert your terms and conditions content here -->
+          <p>By accessing this website, you agree to abide by the terms and conditions outlined...</p>
+          <p>By accessing this website, you agree to abide by the following terms and conditions:</p>
+<p>- You will use this platform responsibly and not engage in any unlawful activities.</p>
+<p>- You will respect the privacy of others and not share any sensitive information without consent.</p>
+<p>- You understand that the content shared here should align with the purpose of the community.</p>
+<p>Thank you for agreeing to these terms. Enjoy your experience!</p>
+<b>Your email is  kept private</b>
+
+          <!-- Add the complete terms and conditions here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="agreeBtn">I Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container border mt-3 bg-light">
+    <div class="row">
+      <div class="col-md-6 p-5 bg-primary text-white">
+        <h1>Hi there!</h1>
+        <h4>
+          "Help us make a difference by submitting posts or incidents that chil rights. Together, we can create a safer and fairer world."-Apil Bhandari
+        </h4>
+      </div>
+      <div class="col-md-6 border-left py-3">
+        <h1>Complaint form</h1>
+        <div class="form-group">
+          <h5 for="name">Tittle</h5>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Enter Tittle"
+          />
+        </div>
+        <div class="form-group">
+          <h5 for="email">email</h5>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <h5 for="message">description</h5>
+          <textarea class="form-control" id="message" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="sendMail()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Show the modal on page load
+    $('#termsModal').modal('show');
+    
+    // Hide the modal when the user clicks "I Agree"
+    $('#agreeBtn').on('click', function() {
+      $('#termsModal').modal('hide');
+    });
+  </script>
+</body>
+</html>
